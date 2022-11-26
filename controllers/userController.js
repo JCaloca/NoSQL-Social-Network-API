@@ -24,7 +24,7 @@ module.exports = {
       });
   },
 
-  // Get User by ID
+  // Get user by ID
   getUserById(req, res) {
     User.findOne({ _id: req.params.userId })
       .populate({ path: "friends", select: "-__v" })
@@ -33,6 +33,21 @@ module.exports = {
       .then((user) =>
         !user
           ? res.status(404).json({ message: "No user with that ID" })
+          : res.json(user)
+      )
+      .catch((err) => res.status(500).json(err));
+  },
+
+  // Update a user by ID
+  updateUserById(req, res) {
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $set: req.body },
+      { runValidators: true, new: true }
+    )
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: "No user found with that ID" })
           : res.json(user)
       )
       .catch((err) => res.status(500).json(err));

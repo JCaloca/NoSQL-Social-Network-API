@@ -5,12 +5,13 @@ const {
   createUser,
   getUsers,
   getUserById,
+  updateUserById,
 } = require("../../controllers/userController");
 
 // route api/users to get all users and create a user
 router.route("/").get(getUsers).post(createUser);
 
-// api/users/:userId to get user by ID
-router.route("/:userId").get(getUserById);
+// api/users/:userId to get user by ID and update
+router.route("/:userId").get(getUserById).put(updateUserById);
 
 module.exports = router;
