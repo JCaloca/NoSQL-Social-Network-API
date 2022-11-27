@@ -33,5 +33,13 @@ module.exports = {
   },
 
   // Get Thought by ID
-  getThoughtById(req, res) {},
+  getThoughtById(req, res) {
+    Thought.findOne({ _id: req.params.thoughtId })
+      .then((dbThought) =>
+        !dbThought
+          ? res.status(404).json({ message: "No thought found with that ID" })
+          : res.json(dbThought)
+      )
+      .catch((err) => res.status(500).json(err));
+  },
 };
