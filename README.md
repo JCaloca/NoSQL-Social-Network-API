@@ -4,7 +4,17 @@
 
 This is a NoSQL based API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. Express.js was used for routing while a MongoDB database and the Mongoose ODM are used to serve and store data.
 
+To view a demonstration video [click-here](https://drive.google.com/file/d/1NLj5Je5KFYrpRGvMp6OkoXqaZiEkm9qo/view)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+### Images of Routes
+
+Below is an image of the route to return all Users from the database.
+![getAllUsers-Route](./assets/GetUsers.png)
+
+Below is an image of the route to create a new Thought
+![createThought-Route](./assets/CreateAThought.png)
 
 ## Table of Contents
 
